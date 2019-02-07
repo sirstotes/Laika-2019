@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 import org.huskyrobotics.frc2019.subsystems.*;
 
-public class CargoIO implements HuskySubsystem {
+public class CargoIO {
 	private NidecBrushless m_motor;
 	private DigitalInput m_limitSwitch;
 	
@@ -47,7 +47,7 @@ public class CargoIO implements HuskySubsystem {
 		m_motor.stopMotor();
 		hasBall = false;
 	}
-	private void do() {
+	private void doAction() {
 		hasBall = m_limitSwitch.get();
 	}
 
@@ -55,19 +55,13 @@ public class CargoIO implements HuskySubsystem {
 	public void autoInit() {
 		init();
 	}
-
-	@Override
 	public void doAuto() {
-		do();
+		doAction();
 	}
-
-	@Override
 	public void teleopInit() {
 		init();
 	}
-
-	@Override
 	public void doTeleop() {
-		do();
+		doAction();
 	}
 }
