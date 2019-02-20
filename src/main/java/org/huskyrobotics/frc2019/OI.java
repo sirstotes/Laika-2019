@@ -34,12 +34,12 @@ public class OI {
 
     controlsHar = new HashMap<String, Integer>();
     controlsHar.put("RobotForward", 1);
-    controlsHar.put("RobotTwist", 0);
+    controlsHar.put("RobotTwist", 2);
     controlsHar.put("TeleopSwitch", 8);
 
     controlsMan = new HashMap<String, Integer>();
-    controlsMan.put("RobotForward", 1);
-    controlsMan.put("RobotTwist", 0);
+    controlsMan.put("RobotForward", 5);
+    controlsMan.put("RobotTwist", 6);
     controlsMan.put("TeleopSwitch", 8);
 
     helmControls = new HashMap[] {controlsHar, controlsMan};
