@@ -4,8 +4,15 @@ import edu.wpi.first.wpilibj.Solenoid;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class IsaiahFlipper {
+public class IsaiahFlipper extends Subsystem {
+    public void initDefaultCommand() 
+    {
+      //setDefaultCommand(new UseDrivetrain());
+      // Set the default command for a subsystem here.
+      // setDefaultCommand(new MySpecialCommand());
+    }
     private TalonSRX m_winchMotor;
     private Solenoid m_sol;
 
@@ -28,7 +35,7 @@ public class IsaiahFlipper {
         }
     }
 	public void setActive (boolean input) {
-		m_controlActive = !input;
+		m_controlActive = input;
 	}
     public void periodic() {
         if(m_controlActive) {
@@ -54,3 +61,4 @@ public class IsaiahFlipper {
         m_winchMotor.set(ControlMode.PercentOutput, 0.0);
     }
 }
+
