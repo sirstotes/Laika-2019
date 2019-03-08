@@ -55,6 +55,7 @@ public class Robot extends TimedRobot {
     m_Arm = new PivotArm(RobotMap.kPivotMaster, EncoderMode.QuadEncoder);
     m_Sputnik = new CargoIO(RobotMap.kCargo);
     m_Kennedy = new HatchIO(RobotMap.kHatchMotor);
+    m_ArmStrong = new IsaiahFlipper(RobotMap.kASLeftPiston, RobotMap.kASRightPiston, RobotMap.kASLeftLock, RobotMap.kASRightLock);
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
   }
