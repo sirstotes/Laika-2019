@@ -15,6 +15,8 @@ public class IsaiahFlipper extends Subsystem {
     }
     private TalonSRX m_winchMotor;
     private Solenoid m_sol;
+    private Solenoid m_lockLeft;
+    private Solenoid m_lockRight;
 
     private boolean m_solActive;
 
@@ -40,6 +42,7 @@ public class IsaiahFlipper extends Subsystem {
     public void periodic() {
         if(m_controlActive) {
             clamp(true);
+			unlock();
         }
         m_sol.set(m_solActive);
     }
@@ -52,6 +55,14 @@ public class IsaiahFlipper extends Subsystem {
     public void toggleClamp() {
         m_solActive = !m_solActive;
     }
+	public void lock() {
+		m_lockLeft.set(false);
+		m_lockRight.set(false);
+	}
+	public void unlock() {
+		m_lockLeft.set(true);
+		m_lockRight.set(true);
+	}
 
     public boolean getClamped() {
         return(m_solActive);
