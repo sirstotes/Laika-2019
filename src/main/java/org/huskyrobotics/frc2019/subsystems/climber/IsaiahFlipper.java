@@ -22,9 +22,11 @@ public class IsaiahFlipper extends Subsystem {
 
     private boolean m_controlActive = false;
 
-    public IsaiahFlipper (int winchMotorPort, int solenoidChannel) {
+    public IsaiahFlipper (int winchMotorPort, int solenoidChannel, int leftLockChannel, int rightLockChannel) {
         m_winchMotor = new TalonSRX(winchMotorPort);
         m_sol = new Solenoid(solenoidChannel);
+	m_lockLeft = new Solenoid(leftLockChannel);
+	m_rightLeft = new Solenoid(rightLockChannel);
     }
     //releases the winch rope
     public void setWinchAxis(double input) {
